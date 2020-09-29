@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.pytest_cache/
+__pychache__/
+*.py[cod]
+*.log
+reports/*
+*.png
+
+# exception to the rule
+!reports/.gitkeep
