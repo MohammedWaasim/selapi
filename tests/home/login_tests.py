@@ -16,7 +16,7 @@ class LoginTest(unittest.TestCase):
         self.ts = TestStatus(self.driver)
 
     @pytest.mark.run(order=2)
-    def test_validLogin(self):
+    def test_web_validLogin(self):
         self.lp.login("test@email.com","abcabc")
         result2 = self.lp.verifyLoginTitle()
         self.ts.mark(result2,"Title is incorrect")
@@ -25,7 +25,7 @@ class LoginTest(unittest.TestCase):
 
 
     @pytest.mark.run(order=1)
-    def test_invliadLogin(self):
+    def test_web_invliadLogin(self):
         time.sleep(4)
         self.lp.logout()
         self.lp.login("test@email.com", "123")

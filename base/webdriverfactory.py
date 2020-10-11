@@ -1,7 +1,10 @@
 import traceback
 from selenium import webdriver
+import utils.custom_logger  as cl
+import logging
 
 class WebDriverFactory():
+    log = cl.customLogger(logging.INFO)
     def __init__(self, browser):
         self.browser = browser
 
@@ -12,11 +15,10 @@ class WebDriverFactory():
         elif self.browser=="firefox":
             driver=webdriver.Firefox()
         elif self.browser=="chrome":
-            chrome_path = "/Users/mohammedwaasim/Documents/workspace_python/drivers/chromedriver"
-            driver=webdriver.Chrome(chrome_path)
+            #chrome_path = "/Users/mohammedwaasim/Documents/workspace_python/drivers/chromedriver"
+            driver=webdriver.Chrome()
         else:
-            chrome_path = "/Users/mohammedwaasim/Documents/workspace_python/drivers/chromedriver"
-            driver = webdriver.Chrome(chrome_path)
+            self.log.error("no such driver found driver not initiated")
 
         driver.implicitly_wait(5)
         driver.maximize_window()
