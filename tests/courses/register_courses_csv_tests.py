@@ -20,10 +20,11 @@ class RegisterCoursesCSVDataTests(unittest.TestCase):
     def setUp(self):
         self.nav.navigateToAllCourses()
 
+
     @pytest.mark.run(order=1)
-    @data(*getCSVData("testdata.csv"))
+    @data(*getCSVData("testdata/web_test_data/testdata.csv"))
     @unpack
-    def test_invalidEnrollment(self, courseName, ccNum,ccExp, ccCVV):
+    def test_web_invalidEnrollment(self, courseName, ccNum,ccExp, ccCVV):
         self.courses.enterCourseName("JavaScript")
         self.courses.selectCourseToEnroll(courseName)
         self.courses.enrollCourse(num=ccNum, exp=ccExp, cvv=ccCVV)
