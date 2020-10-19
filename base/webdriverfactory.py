@@ -1,5 +1,7 @@
 import traceback
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 import utils.custom_logger  as cl
 import logging
 
@@ -16,7 +18,11 @@ class WebDriverFactory():
             driver=webdriver.Firefox()
         elif self.browser=="chrome":
             #chrome_path = "/Users/mohammedwaasim/Documents/workspace_python/drivers/chromedriver"
-            driver=webdriver.Chrome()
+            driver=webdriver.Chrome(ChromeDriverManager().install())
+        elif self.browser=="headless":
+            options = Options()
+            options.headless=True
+            driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
         else:
             self.log.error("no such driver found driver not initiated")
 
