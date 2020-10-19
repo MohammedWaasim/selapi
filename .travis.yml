@@ -8,4 +8,6 @@ install:
   - pip3 install allure-pytest
   - pip3 install pyyaml
   - pip3 install requests
-script: pytest tests/test_suite_demo.py --browser chrome --alluredir=reports
+  - pip3 install webdriver_manager
+script: pytest tests/test_suite_demo.py --browser headless --alluredir=reports --env staging
+#pytest tests/test_suite_demo.py --browser chrome --alluredir=reports --env staging
