@@ -22,7 +22,7 @@ class WebDriverFactory():
         elif self.browser=="headless":
             options = Options()
             options.headless=True
-            driver = webdriver.Chrome(chrome_options=options)
+            driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
         else:
             self.log.error("no such driver found driver not initiated")
 
