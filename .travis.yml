@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.8"
+install:
+  - pip3 install seleium
+  - pip3 install pytest
+  - pip3 install ddt
+  - pip3 install allure-pytest
+script: pytest tests/test_suite_demo.py --browser chrome --alluredir=reports
