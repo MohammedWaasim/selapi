@@ -7,4 +7,5 @@ install:
   - pip3 install ddt
   - pip3 install allure-pytest
   - pip3 install pyyaml
+  - pip3 install requests
 script: pytest tests/test_suite_demo.py --browser chrome --alluredir=reports
