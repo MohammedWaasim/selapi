@@ -27,6 +27,7 @@ class LoginTest(unittest.TestCase):
     @pytest.mark.run(order=1)
     def test_web_invliadLogin(self):
         time.sleep(4)
+        self.lp.login("test@email.com", "abcabc")
         self.lp.logout()
         self.lp.login("test@email.com", "123")
         result=self.lp.verifyInvalidLogin()

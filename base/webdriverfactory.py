@@ -28,5 +28,5 @@ class WebDriverFactory():
 
         driver.implicitly_wait(5)
         driver.maximize_window()
-        driver.get(baseUrl)
+        #driver.get(baseUrl), commented bcoz there is another testcase addded for different website
         return driver
