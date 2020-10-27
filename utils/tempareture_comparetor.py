@@ -14,4 +14,4 @@ class TempretureComparetor():
         if(self.compare(w1,w2)<=self.variance):
             return True
         else:
-            raise Exception("WTF temperature difference is too huge Sue NDTV for false Weather Reporting!")
+            raise Exception(f"WTF temperature reported by NDTV is {w1.temp_c} and openweatherapi is {w2.temp_c} and it is too huge Shouldn't NDTV be sued for false Weather Reporting!")
