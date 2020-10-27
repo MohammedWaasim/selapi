@@ -6,6 +6,7 @@ __pychache__/
 *.log
 reports/*
 *.png
+authorization.txt
 
 # exception to the rule
 !reports/.gitkeep

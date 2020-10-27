@@ -21,7 +21,7 @@ class ApiHelper():
                 self.log.info("the requested url is not successful please check the url and params "+ uri +" " +str(params))
         except:
             self.log.error("unable to perform get call for url "+uri+ " params "+ str(params))
-            print_stack()
+
 
     def post(self,uri,params=None,header=None):
         try:
@@ -35,5 +35,5 @@ class ApiHelper():
                 self.log.info("the requested url is not successful please check the url and params "+ uri +" " +params)
         except:
             self.log.error("unable to perform get call for url "+uri+ " params "+ params)
-            print_stack()
+
 

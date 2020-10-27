@@ -1,0 +1,11 @@
+ndtv_web:
+  url: https://www.ndtv.com/
+  title: 'NDTV: Latest News, India News, Breaking News, Business, Bollywood, Cricket, Videos & Photos'
+  city: Bengaluru
+open_api:
+  base_uri: https://api.openweathermap.org
+  endpoint: /data/2.5/weather
+  city: Bengaluru
+  appid: 7fe67bf08c80ded756e598d6f8fedaea
+  kelvin_diff: 273.15
+  acceptableVariance: 4
