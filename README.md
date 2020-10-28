@@ -33,6 +33,6 @@ will remain there till we press ctrl+c on the terminal.
 NOTE: To run ndtv test run below test.
 
 ```shell script
- pytest tests/ndtv_test/ndtv_tests.py --browser headless --alluredir=reports -v -s
+ pytest tests/test_suite_demo.py --browser headless --alluredir=reports -v -s
 ```
   
