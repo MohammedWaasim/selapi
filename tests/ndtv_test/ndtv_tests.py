@@ -14,11 +14,11 @@ from utils.tempareture_comparetor import TempretureComparetor
 from utils.weather import Weather
 
 
-@pytest.mark.usefixtures("oneTimeNdtvSetup")
+@pytest.mark.usefixtures("oneTimeDriverSetup","oneTimeEveryClassSetup")
 class NdtvWeather(unittest.TestCase):
     log = cl.customLogger(logging.INFO)
     @pytest.fixture(autouse=True)
-    def classSetup(self):
+    def classSetup(self,oneTimeDriverSetup):
         print("get object of page classes")
         self.ndtv_web_data = getYamlData(self.ndtv_test_file, 'ndtv_web')
         self.open_api_data = getYamlData(self.ndtv_test_file, 'open_api')
@@ -39,8 +39,10 @@ class NdtvWeather(unittest.TestCase):
     @pytest.mark.run(order=2)
     def test_web_validate_temp(self):
         print("write test2 here")
+        self.driver.get(self.ndtv_web_data['url'])
         print(self.driver.title)
         self.ndtv_home_page.click_world_tab()
+        self.ndtv_world_page.wait_for_page_to_load()
         self.ndtv_world_page.click_section_menu()
         self.ndtv_world_page.click_weather()
         self.ndtv_city_temp=self.weather_report_page.get_temp_for_given_city(self.ndtv_web_data['city'])

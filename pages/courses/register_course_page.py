@@ -86,7 +86,7 @@ class RegisterCoursesPage(BasePage):
         self.elementClick(element=self.map.course(fullCourseName))
 
     def clickOnEnrollButton(self):
-        self.elementClick(locator=self._enroll_button, locatorType="xpath")
+        self.elementClick(element=self.map.enroll_button)
 
     def enterCardNum(self, num):
         self.switchToFrame(element=self.map.card_number_frame)

@@ -7,11 +7,11 @@ import pytest
 import logging
 import utils.custom_logger as cl
 
-@pytest.mark.usefixtures("oneTimeSetUp")
+@pytest.mark.usefixtures("oneTimeDriverSetup","oneTimeEveryClassSetup")
 class LoginTest(unittest.TestCase):
     log=cl.customLogger(logging.INFO)
     @pytest.fixture(autouse=True)
-    def classSetup(self,oneTimeSetUp):
+    def classSetup(self,oneTimeDriverSetup):
         self.lp = LoginPage(self.driver)
         self.ts = TestStatus(self.driver)
 

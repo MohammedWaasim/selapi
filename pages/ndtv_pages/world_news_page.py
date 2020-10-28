@@ -1,4 +1,6 @@
 import logging
+import pdb
+import time
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
@@ -17,6 +19,7 @@ class WorldNewsPageMap(BasePage):
         return self.getElement("//div[@id='topnav']/ul/li[@class='n_weather']","xpath")
 
     def section_menu(self)->WebElement:
+        self.waitForElement("topnav_section","id")
         return self.getElement("topnav_section")
 
 class WorldNewsPage(BasePage):

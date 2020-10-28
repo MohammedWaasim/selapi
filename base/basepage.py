@@ -313,3 +313,7 @@ class BasePage():
             self.log.error("Failed to assert title")
 
             return False
+
+    def wait_for_page_to_load(self):
+        WebDriverWait(self.driver, 10).until(
+            lambda driver: driver.execute_script('return document.readyState') == 'complete')
