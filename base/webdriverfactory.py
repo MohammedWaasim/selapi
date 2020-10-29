@@ -17,16 +17,19 @@ class WebDriverFactory():
         elif self.browser=="firefox":
             driver=webdriver.Firefox()
         elif self.browser=="chrome":
+            options = Options()
+            options.add_argument("--disable-notifications")
             #chrome_path = "/Users/mohammedwaasim/Documents/workspace_python/drivers/chromedriver"
-            driver=webdriver.Chrome(ChromeDriverManager().install())
+            driver=webdriver.Chrome(ChromeDriverManager().install(),options=options)
         elif self.browser=="headless":
             options = Options()
             options.headless=True
+            options.add_argument("--disable-notifications")
             driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
         else:
             self.log.error("no such driver found driver not initiated")
 
         driver.implicitly_wait(5)
         driver.maximize_window()
-        driver.get(baseUrl)
+        #driver.get(baseUrl), commented bcoz there is another testcase addded for different website
         return driver

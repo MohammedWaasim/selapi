@@ -29,4 +29,10 @@ pytest tests/test_suite_demo.py --browser chrome --alluredir=reports --env stagi
 7. To run Web test alone exe 'pytest -k web --browser chrome --alluredir=reports'
 6. Finally to view the report run 'allure serve reports' <- this command will open the report in the dynamic page and
 will remain there till we press ctrl+c on the terminal.
+
+NOTE: To run ndtv test run below test.
+
+```shell script
+ pytest tests/test_suite_demo.py --browser headless --alluredir=reports -v -s
+```
   

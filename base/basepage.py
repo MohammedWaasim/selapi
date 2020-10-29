@@ -107,7 +107,7 @@ class BasePage():
         except:
             self.log.info("Cannot click on the element with locator: " + locator +
                           " locatorType: " + locatorType)
-            print_stack()
+
 
     def sendKeys(self, data, locator="", locatorType="id", element=None):
         """
@@ -123,7 +123,7 @@ class BasePage():
         except:
             self.log.info("Cannot send data on the element with locator: " + locator +
                   " locatorType: " + locatorType)
-            print_stack()
+
 
     def getText(self, locator="", locatorType="id", element=None, info=""):
         """
@@ -146,7 +146,7 @@ class BasePage():
                 text = text.strip()
         except:
             self.log.error("Failed to get text on element " + info)
-            print_stack()
+
             text = None
         return text
 
@@ -177,24 +177,27 @@ class BasePage():
             self.log.info("Element not found")
             return False
 
-    def waitForElement(self, locator, locatorType="id",
-                               timeout=10, pollFrequency=0.5):
-        element = None
+    def waitForElement(self, locator=None, locatorType="id",
+                               timeout=10, pollFrequency=0.5, element=None):
+        delayed_element = None
         try:
             byType = self.getByType(locatorType)
             self.log.info("Waiting for maximum :: " + str(timeout) +
                   " :: seconds for element to be clickable")
-            wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+            wait = WebDriverWait(self.driver, 10, poll_frequency=pollFrequency,
                                  ignored_exceptions=[NoSuchElementException,
                                                      ElementNotVisibleException,
                                                      ElementNotSelectableException])
-            element = wait.until(EC.element_to_be_clickable((byType,
+            if(element):
+                delayed_element = wait.until(EC.visibility_of(element))
+            else:
+                delayed_element = wait.until(EC.element_to_be_clickable((byType,
                                                              locator)))
             self.log.info("Element appeared on the web page")
         except:
             self.log.info("Element not appeared on the web page")
-            print_stack()
-        return element
+
+        return delayed_element
 
     def webScroll(self, direction="up"):
         if(direction=="up"):
@@ -288,7 +291,7 @@ class BasePage():
 
         except:
             self.log.error("no such frame with given details")
-            print_stack()
+
 
     def switchToDefaultContent(self):
         """
@@ -308,5 +311,9 @@ class BasePage():
             return self.util.verifyTextContains(self.getTitle(),titleToVerify)
         except:
             self.log.error("Failed to assert title")
-            print_stack()
+
             return False
+
+    def wait_for_page_to_load(self):
+        WebDriverWait(self.driver, 10).until(
+            lambda driver: driver.execute_script('return document.readyState') == 'complete')

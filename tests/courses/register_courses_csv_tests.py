@@ -7,12 +7,12 @@ from ddt import ddt, data, unpack
 from utils.read_data import getCSVData
 from pages.home.navigation_page import NavigationPage
 
-@pytest.mark.usefixtures("oneTimeSetUp")
+@pytest.mark.usefixtures("oneTimeDriverSetup","oneTimeEveryClassSetup")
 @ddt
 class RegisterCoursesCSVDataTests(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
-    def objectSetup(self, oneTimeSetUp):
+    def objectSetup(self,oneTimeDriverSetup):
         self.courses = RegisterCoursesPage(self.driver)
         self.ts = TestStatus(self.driver)
         self.nav = NavigationPage(self.driver)

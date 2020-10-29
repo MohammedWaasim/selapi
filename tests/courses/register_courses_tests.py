@@ -15,7 +15,6 @@ class RegisterCoursesTests(unittest.TestCase):
 
     @pytest.mark.run(order=1)
     def test_invalidEnrollment(self):
-        #pdb.set_trace()
         self.courses.enterCourseName("JavaScript")
         self.courses.selectCourseToEnroll("JavaScript for beginners")
         self.courses.enrollCourse(num="1111222233334444", exp="1220", cvv="101")

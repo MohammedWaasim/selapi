@@ -50,6 +50,7 @@ class LoginPage(BasePage):
 
     def login(self, username="", pwd=""):
         self.log.debug("performing login actions")
+        self.driver.get("https://courses.letskodeit.com/")
         self.clickLoginLink()
         time.sleep(3)
         self.enterEmail(username)

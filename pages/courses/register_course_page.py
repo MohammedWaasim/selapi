@@ -64,16 +64,16 @@ class RegisterCoursesPage(BasePage):
     ################
     #_search_box = "course"
     #_course = "//div[contains(@class,'course-title')]//h4[contains(text(),'{0}')]"
-    _all_courses = "course-listing-title"
-    _enroll_button = "//button[text()='Enroll in Course']"
-    _cc_num = "cardnumber"
-    _cc_exp = "exp-date"
-    _cc_cvv = "cvc"
-    _submit_enroll = "(//button[contains(@class,'btn-submit')])[2]"
-    _enroll_error_message = "//div[@class='card-errors has-error']/ul/li/span"
-    _card_number_frame="//iframe[@title='Secure card number input frame']"
-    _expiry_date_frame="//iframe[@title='Secure expiration date input frame']"
-    _security_code_frame="//iframe[@title='Secure CVC input frame']"
+    # _all_courses = "course-listing-title"
+    # _enroll_button = "//button[text()='Enroll in Course']"
+    # _cc_num = "cardnumber"
+    # _cc_exp = "exp-date"
+    # _cc_cvv = "cvc"
+    # _submit_enroll = "(//button[contains(@class,'btn-submit')])[2]"
+    # _enroll_error_message = "//div[@class='card-errors has-error']/ul/li/span"
+    # _card_number_frame="//iframe[@title='Secure card number input frame']"
+    # _expiry_date_frame="//iframe[@title='Secure expiration date input frame']"
+    # _security_code_frame="//iframe[@title='Secure CVC input frame']"
 
     ############################
     ### Element Interactions ###
@@ -86,7 +86,7 @@ class RegisterCoursesPage(BasePage):
         self.elementClick(element=self.map.course(fullCourseName))
 
     def clickOnEnrollButton(self):
-        self.elementClick(locator=self._enroll_button, locatorType="xpath")
+        self.elementClick(element=self.map.enroll_button)
 
     def enterCardNum(self, num):
         self.switchToFrame(element=self.map.card_number_frame)

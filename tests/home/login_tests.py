@@ -7,11 +7,11 @@ import pytest
 import logging
 import utils.custom_logger as cl
 
-@pytest.mark.usefixtures("oneTimeSetUp")
+@pytest.mark.usefixtures("oneTimeDriverSetup","oneTimeEveryClassSetup")
 class LoginTest(unittest.TestCase):
     log=cl.customLogger(logging.INFO)
     @pytest.fixture(autouse=True)
-    def classSetup(self,oneTimeSetUp):
+    def classSetup(self,oneTimeDriverSetup):
         self.lp = LoginPage(self.driver)
         self.ts = TestStatus(self.driver)
 
@@ -27,6 +27,7 @@ class LoginTest(unittest.TestCase):
     @pytest.mark.run(order=1)
     def test_web_invliadLogin(self):
         time.sleep(4)
+        self.lp.login("test@email.com", "abcabc")
         self.lp.logout()
         self.lp.login("test@email.com", "123")
         result=self.lp.verifyInvalidLogin()

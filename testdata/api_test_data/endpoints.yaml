@@ -1,4 +1,0 @@
-library_api:
-  read_api: /Library/GetBook.php
-  create_api: /Library/Addbook.php
-  delete_api: /Library/DeleteBook.php

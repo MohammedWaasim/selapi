@@ -33,7 +33,7 @@ class TestStatus(BasePage):
             self.resultlist.append("FAIL")
             self.log.error("###Exception Occurred!!! ")
             self.screenShot(resultMessage)
-            print_stack()
+
 
     def mark(self, result, resultMessage):
         self.setResult(result,resultMessage)
