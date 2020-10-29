@@ -25,7 +25,8 @@ class LibraryValidation(unittest.TestCase):
         url = test_data['base_url'] + self.endpoint['read_api']
         response=self.api.get(url,params)
         res=response.json()
-        exp_result={k:v for k,v in test_data.items() if k!='author'}
+        exp_result={k:v for k,v in test_data.items() if k!='author' and k!='base_url'}
+        pdb.set_trace()
         results= exp_result in res
         self.ts.markFinal('test_reading_book_details',results,"book details does not match")
 
