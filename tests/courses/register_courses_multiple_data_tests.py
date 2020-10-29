@@ -19,7 +19,6 @@ class RegisterCoursesMultipleDataTests(unittest.TestCase):
     @data(("JavaScript for beginners","1111222233334444","1220","101"),("Selenium WebDriver With Python 3.x","1111222233334444","1220","101"))
     @unpack
     def test_invalidEnrollment(self, courseName, ccNum,ccExp, ccCVV):
-        #pdb.set_trace()
         self.courses.enterCourseName("JavaScript")
         self.courses.selectCourseToEnroll(courseName)
         self.courses.enrollCourse(num=ccNum, exp=ccExp, cvv=ccCVV)
