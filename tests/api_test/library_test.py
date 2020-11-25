@@ -17,7 +17,8 @@ class LibraryValidation(unittest.TestCase):
         self.api=ApiHelper()
         self.endpoint = getYamlData(self.lib_testdata_file, 'end_points')
 
-    def test_reading_book_details(self):
+    @pytest.mark.regression
+    def test_api_reading_book_details(self):
         print("inside lib_test test_reading_book_details method")
         params={}
         test_data=getYamlData(self.lib_testdata_file)

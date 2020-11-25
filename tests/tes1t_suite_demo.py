@@ -9,5 +9,6 @@ tc2=unittest.TestLoader().loadTestsFromTestCase(RegisterCoursesCSVDataTests)
 tc3=unittest.TestLoader().loadTestsFromTestCase(LibraryValidation)
 tc4=unittest.TestLoader().loadTestsFromTestCase(NdtvWeather)
 
-smokeTest=unittest.TestSuite([tc1,tc2,tc3,tc4])
+smokeTest=unittest.TestSuite([tc1])
+regression=unittest.TestSuite([tc1,tc2,tc3,tc4])
 unittest.TextTestRunner(verbosity=2).run(smokeTest)

@@ -20,8 +20,7 @@ class RegisterCoursesCSVDataTests(unittest.TestCase):
     def setUp(self):
         self.nav.navigateToAllCourses()
 
-
-    @pytest.mark.run(order=1)
+    @pytest.mark.regression
     @data(*getCSVData("testdata/web_test_data/testdata.csv"))
     @unpack
     def test_web_invalidEnrollment(self, courseName, ccNum,ccExp, ccCVV):

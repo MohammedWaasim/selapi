@@ -13,6 +13,7 @@ class RegisterCoursesTests(unittest.TestCase):
         self.courses = RegisterCoursesPage(self.driver)
         self.ts = TestStatus(self.driver)
 
+
     @pytest.mark.run(order=1)
     def test_invalidEnrollment(self):
         self.courses.enterCourseName("JavaScript")

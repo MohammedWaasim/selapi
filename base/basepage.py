@@ -210,7 +210,6 @@ class BasePage():
     def isEnabled(self, locator, locatorType="id", info=""):
         """
         Check if element is enabled
-
         Parameters:
             1. Required:
                 1. locator - Locator of the element to check
@@ -292,7 +291,6 @@ class BasePage():
         except:
             self.log.error("no such frame with given details")
 
-
     def switchToDefaultContent(self):
         """
         Switch to default content
@@ -315,5 +313,5 @@ class BasePage():
             return False
 
     def wait_for_page_to_load(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 120).until(
             lambda driver: driver.execute_script('return document.readyState') == 'complete')
