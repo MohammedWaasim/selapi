@@ -1,6 +1,6 @@
 ndtv_web:
   url: https://www.ndtv.com/
-  title: 'NDTV: Latest News, India News, Breaking News, Business, Bollywood, Cricket, Videos & Photos'
+  title: "Get Latest News, India News, Breaking News, Today's News - NDTV.com"
   city: Bengaluru
 open_api:
   base_uri: https://api.openweathermap.org
@@ -8,4 +8,4 @@ open_api:
   city: Bengaluru
   appid: 7fe67bf08c80ded756e598d6f8fedaea
   kelvin_diff: 273.15
-  acceptableVariance: 2
+  acceptableVariance: 20

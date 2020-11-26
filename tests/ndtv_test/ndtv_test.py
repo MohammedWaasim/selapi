@@ -5,7 +5,7 @@ import unittest
 import utils.custom_logger as cl
 import pytest
 
-from pages.ndtv_pages.ndtv_home_page import NdtvHomePageMap, NdtvHomePage
+from pages.ndtv_pages.ndtv_home_page import NdtvHomePage
 from pages.ndtv_pages.weather_report_page import WeatherReportPage
 from pages.ndtv_pages.world_news_page import WorldNewsPage
 from utils.api_helper import ApiHelper
@@ -28,7 +28,7 @@ class NdtvWeather(unittest.TestCase):
         self.api=ApiHelper()
         self.temp_comp=TempretureComparetor(self.open_api_data['acceptableVariance'])
 
-
+    @pytest.mark.regression
     @pytest.mark.run(order=1)
     def test_web_navigate_ndtv(self):
         print("write test1")
@@ -36,6 +36,7 @@ class NdtvWeather(unittest.TestCase):
         print(self.driver.title)
         assert self.ndtv_web_data['title'] == self.ndtv_home_page.getTitle()
 
+    @pytest.mark.regression
     @pytest.mark.run(order=2)
     def test_web_validate_temp(self):
         print("write test2 here")

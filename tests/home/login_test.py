@@ -15,6 +15,8 @@ class LoginTest(unittest.TestCase):
         self.lp = LoginPage(self.driver)
         self.ts = TestStatus(self.driver)
 
+    @pytest.mark.regression
+    @pytest.mark.sanity
     @pytest.mark.run(order=2)
     def test_web_validLogin(self):
         self.lp.login("test@email.com","abcabc")
@@ -23,7 +25,8 @@ class LoginTest(unittest.TestCase):
         result1 = self.lp.verifyLoginSuccessful()
         self.ts.markFinal("test_validLogin",result1,"Login was not successful")
 
-
+    @pytest.mark.regression
+    @pytest.mark.sanity
     @pytest.mark.run(order=1)
     def test_web_invliadLogin(self):
         time.sleep(4)
