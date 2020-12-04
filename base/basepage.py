@@ -94,26 +94,18 @@ class BasePage():
         return elements
 
     def elementClick(self, locator="", locatorType="id", element=None):
-        """
-        Click on an element -> MODIFIED
-        Either provide element or a combination of locator and locatorType
-        """
-        try:
+       try:
             if locator:  # This means if locator is not empty
                 element = self.getElement(locator, locatorType)
             element.click()
-            self.log.info("Clicked on element with locator: " + locator +
+            self.log.info("Clicked on the element with locator: " + locator +
                           " locatorType: " + locatorType)
-        except:
+       except:
             self.log.info("Cannot click on the element with locator: " + locator +
                           " locatorType: " + locatorType)
 
 
     def sendKeys(self, data, locator="", locatorType="id", element=None):
-        """
-        Send keys to an element -> MODIFIED
-        Either provide element or a combination of locator and locatorType
-        """
         try:
             if locator:  # This means if locator is not empty
                 element = self.getElement(locator, locatorType)
@@ -126,11 +118,6 @@ class BasePage():
 
 
     def getText(self, locator="", locatorType="id", element=None, info=""):
-        """
-        NEW METHOD
-        Get 'Text' on an element
-        Either provide element or a combination of locator and locatorType
-        """
         try:
             if locator: # This means if locator is not empty
                 self.log.debug("In locator condition")
@@ -208,19 +195,6 @@ class BasePage():
             self.log.info("scrolling page down")
 
     def isEnabled(self, locator, locatorType="id", info=""):
-        """
-        Check if element is enabled
-        Parameters:
-            1. Required:
-                1. locator - Locator of the element to check
-            2. Optional:
-                1. locatorType - Type of the locator(id(default), xpath, css, className, linkText)
-                2. info - Information about the element, label/name of the element
-        Returns:
-            boolean
-        Exception:
-            None
-        """
         element = self.getElement(locator, locatorType=locatorType)
         enabled = False
         try:
@@ -240,44 +214,12 @@ class BasePage():
         return enabled
 
     def getElementAttributeValue(self, attribute, element=None, locator="", locatorType="id"):
-        """
-        Get value of the attribute of element
-
-        Parameters:
-            1. Required:
-                1. attribute - attribute whose value to find
-
-            2. Optional:
-                1. element   - Element whose attribute need to find
-                2. locator   - Locator of the element
-                3. locatorType - Locator Type to find the element
-
-        Returns:
-            Value of the attribute
-        Exception:
-            None
-        """
         if locator:
             element = self.getElement(locator=locator, locatorType=locatorType)
         value = element.get_attribute(attribute)
         return value
 
     def switchToFrame(self, id="", name="", index=None, element=None):
-        """
-        Switch to iframe using element locator inside iframe
-
-        Parameters:
-            1. Required:
-                None
-            2. Optional:
-                1. id    - id of the iframe
-                2. name  - name of the iframe
-                3. index - index of the iframe
-        Returns:
-            None
-        Exception:
-            None
-        """
         try:
             if id:
                 self.driver.switch_to.frame(id)
@@ -292,16 +234,7 @@ class BasePage():
             self.log.error("no such frame with given details")
 
     def switchToDefaultContent(self):
-        """
-        Switch to default content
 
-        Parameters:
-            None
-        Returns:
-            None
-        Exception:
-            None
-        """
         self.driver.switch_to.default_content()
 
     def verifyPageTitle(self,titleToVerify):
@@ -313,5 +246,5 @@ class BasePage():
             return False
 
     def wait_for_page_to_load(self):
-        WebDriverWait(self.driver, 120).until(
-            lambda driver: driver.execute_script('return document.readyState') == 'complete')
+        WebDriverWait(self.driver,210).until(
+            lambda driver: driver.execute_script('return document.readyState') in ['interactive','complete'])

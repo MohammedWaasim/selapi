@@ -1,3 +1,4 @@
+import pdb
 import traceback
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -11,8 +12,7 @@ class WebDriverFactory():
     def __init__(self, browser):
         self.browser = browser
 
-    def getWebDriverInstance(self):
-        baseUrl="https://courses.letskodeit.com/"
+    def getWebDriverInstance(self,crx_path=None):
         if self.browser=="iexplorer":
             driver=webdriver.Ie()
         elif self.browser=="firefox":
@@ -27,10 +27,13 @@ class WebDriverFactory():
             options.headless=True
             options.add_argument("--disable-notifications")
             driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+        elif self.browser=="chrome_with_ext":
+            chop = webdriver.ChromeOptions()
+            chop.add_extension(crx_path)
+            driver = webdriver.Chrome(options=chop)
         else:
             self.log.error("no such driver found driver not initiated")
 
         driver.implicitly_wait(5)
         driver.maximize_window()
-        #driver.get(baseUrl), commented bcoz there is another testcase addded for different website
         return driver
