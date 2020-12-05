@@ -40,7 +40,6 @@ class Google_Translate(unittest.TestCase):
         self.popup_page.wait_for_page_to_load()
         self.popup_page.enter_input_text(self.test_data['popup_page']['input_text_in_non_english'])
         self.popup_page.click_translate()
-        pdb.set_trace()
         result=self.popup_page.get_translated_text()
         assert result==self.test_data['popup_page']['translated_text_in_english']
 

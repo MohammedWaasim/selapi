@@ -3,7 +3,6 @@ import os
 import pdb
 import pytest
 from base.webdriverfactory import WebDriverFactory
-from pages.home.login_page import LoginPage
 import configparser
 from utils import custom_logger as cl
 
