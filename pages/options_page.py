@@ -31,16 +31,21 @@ class OptionsPage(BasePage):
 
     def click_on_immediately_display(self):
         self.elementClick(element=self.map.immediately_display_popup_radio_button())
+        cl.allureLogs("clicked on immediately display radio button")
 
     def click_on_save(self):
         self.elementClick(element=self.map.save_button())
+        cl.allureLogs("clicked on save button")
 
     def get_save_status(self):
         self.waitForElement(locator="//span[@id='saveStatus'][contains(@style,'opacity: 1')]",locatorType="xpath")
         print(self.getElementAttributeValue(element=self.map.save_status(),attribute='style'))
         if(self.getElementAttributeValue(element=self.map.save_status(),attribute='style').__contains__('opacity: 1;')):
+            cl.allureLogs("save status displayed")
             return True
         else:
+            cl.allureLogs("save status not displayed")
+            self.screenShot("unable to translate page")
             return False
 
 

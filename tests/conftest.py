@@ -22,18 +22,6 @@ def oneTimeEveryClassSetup(request,browser):
     print("Running DRIVER QUIT")
     print("Running one time tearDown for every Class")
 
-# @pytest.fixture(scope="function")
-# def oneTimeDriverSetup(request, browser):
-#     print("Running DRIVER SETUP")
-#     wdf = WebDriverFactory(browser)
-#     driver = wdf.getWebDriverInstance()
-#     if request.cls is not None:
-#         request.cls.driver = driver
-#     yield driver
-#     driver.quit()
-#     print("Running DRIVER QUIT")
-
-
 def pytest_addoption(parser):
     parser.addoption("--browser")
     parser.addoption("--osType", help="Type of operating system")

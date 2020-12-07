@@ -2,6 +2,9 @@ import inspect
 import logging
 import pdb
 
+import allure
+
+
 def customLogger(logLevel=logging.DEBUG):
     #Get the name of the class/method from where this method is called
     loggerName=inspect.stack()[1][3]
@@ -17,3 +20,7 @@ def customLogger(logLevel=logging.DEBUG):
     fileHandler.setFormatter(formatter)
     logger.addHandler(fileHandler)
     return logger
+
+def allureLogs(text):
+    with allure.step(text):
+        pass

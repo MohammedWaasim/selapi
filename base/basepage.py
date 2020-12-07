@@ -183,6 +183,8 @@ class BasePage():
             self.log.info("Element appeared on the web page")
         except:
             self.log.info("Element not appeared on the web page")
+            cl.allureLogs("Element not appeared on the web page")
+            self.screenShot("Element not appeared on the web page")
 
         return delayed_element
 
@@ -246,5 +248,6 @@ class BasePage():
             return False
 
     def wait_for_page_to_load(self):
+        cl.allureLogs("waiting for page to load")
         WebDriverWait(self.driver,210).until(
             lambda driver: driver.execute_script('return document.readyState') in ['interactive','complete'])
