@@ -4,6 +4,7 @@ import time
 import pyautogui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 import utils.custom_logger as cl
 import allure
@@ -21,8 +22,7 @@ class TplinkHomePage(BasePage):
         while(self.get_dom_language()=='es-ar' and count<4):
             try:
                 actions=ActionChains(self.driver)
-                actions.context_click(None).perform()
-                pyautogui.typewrite(['t','enter'])
+                actions.context_click(None).pause(3).send_keys("t").send_keys(Keys.ENTER).perform()
                 WebDriverWait(self.driver, 10).until(lambda driver: driver.execute_script(
                     "return document.getElementsByTagName('html')[0].getAttribute('lang')") != 'es-ar')
                 cl.allureLogs("waiting for 10 sec for website language to change from regional language")

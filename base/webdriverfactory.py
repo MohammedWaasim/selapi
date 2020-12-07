@@ -30,7 +30,7 @@ class WebDriverFactory():
         elif self.browser=="chrome_with_ext":
             chop = webdriver.ChromeOptions()
             chop.add_extension(crx_path)
-            driver = webdriver.Chrome(options=chop)
+            driver = webdriver.Chrome(ChromeDriverManager().install(),options=chop)
         else:
             self.log.error("no such driver found driver not initiated")
 
