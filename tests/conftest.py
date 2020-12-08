@@ -12,8 +12,6 @@ def oneTimeEveryClassSetup(request,browser):
     config = configparser.ConfigParser()
     config.read('properties.ini')
     if request.cls is not None:
-        request.cls.ndtv_test_file = config['NDTVTest']['NdtvTestData']
-        request.cls.test_data_path=config['GoogleData']['test_data_path']
         wdf = WebDriverFactory(browser)
         driver = wdf.getWebDriverInstance(crx_path=config['GoogleData']['crx_file_path'])
         request.cls.driver = driver
