@@ -1,0 +1,11 @@
+[32mINFO    [0m WDM:logger.py:14 Current google-chrome version is 87.0.4280
+[32mINFO    [0m WDM:logger.py:14 Get LATEST driver version for 87.0.4280
+[32mINFO    [0m WDM:logger.py:14 Driver [/Users/mohammedwaasim/.wdm/drivers/chromedriver/mac64/87.0.4280.88/chromedriver] found in cache
+[32mINFO    [0m OptionsPageMap:basepage.py:67 Element Found with locator //div[@data-value='2'] with locator type xpath
+[32mINFO    [0m BasePage:basepage.py:101 Clicked on the element with locator:  locatorType: id
+[32mINFO    [0m OptionsPageMap:basepage.py:67 Element Found with locator saveBtn with locator type id
+[32mINFO    [0m BasePage:basepage.py:101 Clicked on the element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:172 Waiting for maximum :: 10 :: seconds for element to be clickable
+[32mINFO    [0m BasePage:basepage.py:183 Element appeared on the web page
+[32mINFO    [0m OptionsPageMap:basepage.py:67 Element Found with locator saveStatus with locator type id
+[32mINFO    [0m OptionsPageMap:basepage.py:67 Element Found with locator saveStatus with locator type id

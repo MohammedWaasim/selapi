@@ -1,0 +1,1 @@
+[1m[31mERROR   [0m WebDriverFactory:webdriverfactory.py:35 no such driver found driver not initiated

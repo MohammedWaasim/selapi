@@ -1,0 +1,22 @@
+[32mINFO    [0m WDM:logger.py:14 Current google-chrome version is 87.0.4280
+[32mINFO    [0m WDM:logger.py:14 Get LATEST driver version for 87.0.4280
+[32mINFO    [0m WDM:logger.py:14 Driver [/Users/mohammedwaasim/.wdm/drivers/chromedriver/mac64/87.0.4280.88/chromedriver] found in cache
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator text-input with locator type id
+[32mINFO    [0m BasePage:basepage.py:113 Sent data on element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator //div[@role='button'] with locator type xpath
+[32mINFO    [0m BasePage:basepage.py:101 Clicked on the element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:172 Waiting for maximum :: 10 :: seconds for element to be clickable
+[32mINFO    [0m BasePage:basepage.py:185 Element not appeared on the web page
+[32mINFO    [0m BasePage:basepage.py:36 Screenshot save to directory/Users/mohammedwaasim/Documents/workspace_python/chrome_ext_assignment/selapi/base/../screenshots/
+[32mINFO    [0m BasePage:basepage.py:69 Element not found with locator (//div[@class='gtx-body'])[2] with locator type xpath
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator translate-page with locator type id
+[32mINFO    [0m BasePage:basepage.py:145 Element Found with locator
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator translate-page with locator type id
+[32mINFO    [0m BasePage:basepage.py:101 Clicked on the element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator text-input with locator type id
+[32mINFO    [0m BasePage:basepage.py:113 Sent data on element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator //div[@role='button'] with locator type xpath
+[32mINFO    [0m BasePage:basepage.py:101 Clicked on the element with locator:  locatorType: id
+[32mINFO    [0m BasePage:basepage.py:172 Waiting for maximum :: 10 :: seconds for element to be clickable
+[32mINFO    [0m BasePage:basepage.py:183 Element appeared on the web page
+[32mINFO    [0m BasePage:basepage.py:67 Element Found with locator (//div[@class='gtx-body'])[2] with locator type xpath

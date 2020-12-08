@@ -52,7 +52,7 @@ class Google_Translate(unittest.TestCase):
                 self.popup_page.screenShot("translation did not happen")
                 cl.allureLogs("translation did not happen")
                 assert False
-        assert result==self.test_data['popup_page']['translated_text_in_english']
+        assert result==self.test_data['popup_page']['translated_text_in_english'].lower()
 
     #this is to verify if the tplink_home home page gets translated from regional language to english language
     #this is flaky I tried with other sites ocationally right click menu gets clicked  and some time not.

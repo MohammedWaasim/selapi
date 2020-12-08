@@ -38,7 +38,7 @@ class PopupPage(BasePage):
         cl.allureLogs("clicking on translate button")
 
     def get_translated_text(self):
-        cl.allureLogs("clicked on translate button")
+        cl.allureLogs(f"google translated text is {self.map.translated_text().text.lower()}")
         return self.map.translated_text().text.lower()
 
     def is_translate_this_page_displayed(self):

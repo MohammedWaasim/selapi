@@ -3,8 +3,8 @@ google_translate:
     url: /options.html
   popup_page:
     url: /popup.html
-    input_text_in_non_english: "ಕನ್ನಡ"
-    translated_text_in_english: "kannada"
+    input_text_in_non_english: "मुझे ओस्लाश कंपनी पसंद आने लगी"
+    translated_text_in_english: "I started liking the Oslash company"
   base_url: "chrome-extension://aapbdbdomjkkjkaonfhkkikfgjllcleb"
   tplink_home:
     url: https://www.tp-link.com/ar/
