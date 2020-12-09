@@ -21,7 +21,6 @@ class LibraryValidation(unittest.TestCase):
     def test_api_reading_book_details(self):
         print("inside lib_test test_reading_book_details method")
         params={}
-        pdb.set_trace()
         test_data=getYamlData(self.lib_testdata_file)
         params['AuthorName']=test_data['author']
         url = test_data['base_url'] + self.endpoint['read_api']
