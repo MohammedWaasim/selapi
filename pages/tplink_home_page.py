@@ -1,7 +1,6 @@
 import pdb
 import time
 
-import pyautogui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
