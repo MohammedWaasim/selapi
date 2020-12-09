@@ -13,6 +13,7 @@ def oneTimeEveryClassSetup(request,browser):
     config.read('properties.ini')
     if request.cls is not None:
         wdf = WebDriverFactory(browser)
+        request.cls.test_data_path=config['GoogleData']['test_data_path']
         driver = wdf.getWebDriverInstance(crx_path=config['GoogleData']['crx_file_path'])
         request.cls.driver = driver
     yield True
