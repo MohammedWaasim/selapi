@@ -49,8 +49,8 @@ class NdtvWeather(unittest.TestCase):
         self.ndtv_city_temp=self.weather_report_page.get_temp_for_given_city(self.ndtv_web_data['city'])
         print(self.ndtv_city_temp)
         params={}
-        params.__setitem__("q",self.open_api_data['city'])
-        params.__setitem__("appid", self.appid)
+        params['q']=self.open_api_data['city']
+        params['appid']=self.appid
         url=self.open_api_data['base_uri']+self.open_api_data['endpoint']
         resp=self.api.get(url,params=params)
         resp=resp.json()
