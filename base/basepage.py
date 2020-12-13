@@ -27,7 +27,6 @@ class BasePage():
         currentDir=os.path.dirname(__file__)
         destinationFile=os.path.join(currentDir,relativeFileName)
         destinationDir=os.path.join(currentDir,screenShotDir)
-
         try:
             if not os.path.exists(destinationDir):
                 os.makedirs(destinationDir)
@@ -250,4 +249,4 @@ class BasePage():
     def wait_for_page_to_load(self):
         cl.allureLogs("waiting for page to load")
         WebDriverWait(self.driver,210).until(
-            lambda driver: driver.execute_script('return document.readyState') in ['interactive','complete'])
+            lambda driver: driver.execute_script('return document.readyState') in ['complete'])

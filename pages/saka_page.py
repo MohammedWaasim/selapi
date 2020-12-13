@@ -1,6 +1,8 @@
 import logging
 import pdb
 import time
+import allure
+from selenium.webdriver.remote.webelement import WebElement
 
 import utils.custom_logger as cl
 from selenium.webdriver.common.by import By
@@ -11,6 +13,10 @@ class SakaPageMap(BasePage):
     def __init__(self,driver):
         super().__init__(driver)
         self.driver=driver
+
+    def bookmark_tab(self) -> WebElement:
+        self.waitForElement("//div/i[text()='bookmark_border']","xpath")
+        return self.getElement("//div/i[text()='bookmark_border']","xpath")
 
 
 class SakaPage(BasePage):
@@ -24,5 +30,12 @@ class SakaPage(BasePage):
         self.elementClick(element=tab_to_click)
         cl.allureLogs(f"selected {tab_name} from saka window")
         time.sleep(3)
-        self.screenShot(f"the expected {tab_name} is displayed")
 
+    def select_bookmark_tab(self):
+        self.elementClick(element=self.map.bookmark_tab())
+
+    def wait_for_bookmarks_to_display(self):
+        self.waitForElement("//input[@aria-label='Bookmarks']","xpath")
+
+    def get_bookmarked_site(self):
+        return self.getElement("//ul/li/span[2]/span[2]","xpath").text

@@ -8,6 +8,9 @@ import unittest
 import utils.custom_logger as cl
 from pages.saka_page import SakaPage
 from collections import Counter
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import pyautogui
 
 @pytest.mark.usefixtures("oneTimeEveryClassSetup")
 class Google_Translate(unittest.TestCase):
@@ -36,5 +39,28 @@ class Google_Translate(unittest.TestCase):
         self.driver.get(self.test_data['base_url'] + self.test_data['saka_home'])
         self.saka.wait_for_page_to_load()
         #switching oslash tab
-        self.saka.select_tabs_in_saka_window(self.test_data['websites'][self.test_data['switch_tab']])
+        self.saka.select_tabs_in_saka_window(self.test_data['websites'][self.test_data['test_tab']])
+
+    @pytest.mark.order(2)
+    def test_setting_bookmark(self):
+        self.driver.get(self.test_data['websites'][self.test_data['test_tab']])
+        test_window=self.driver.current_window_handle
+        self.saka.wait_for_page_to_load()
+        #actions=ActionChains(self.driver)
+        #actions.key_down(Keys.COMMAND).send_keys('d').key_up(Keys.COMMAND).perform()
+        pyautogui.keyDown('command')
+        pyautogui.press('d')
+        pyautogui.keyUp('command')
+        time.sleep(2)
+        pyautogui.press('enter')
+        self.driver.execute_script(f"window.open('{self.test_data['base_url'] + self.test_data['saka_home']}')")
+        for window in self.driver.window_handles:
+            if (window !=test_window):
+                self.driver.switch_to_window(window)
+        [self.driver.switch_to_window(window) for window in self.driver.window_handles if (window !=test_window)]
+        self.saka.select_bookmark_tab()
+        self.saka.wait_for_bookmarks_to_display()
+        assert self.test_data['websites'][self.test_data['test_tab']]== self.saka.get_bookmarked_site()
+
+
 

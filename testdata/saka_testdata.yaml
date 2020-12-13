@@ -6,7 +6,8 @@ saka:
     oslash: 'https://oslash.com/'
     whatsapp: 'https://www.whatsapp.com/'
     telegram_login: 'https://web.telegram.org/#/login'
-  switch_tab: oslash
+  test_tab: oslash
+  bookmarks_site: 'chrome://bookmarks/'
 
 
 
