@@ -33,6 +33,6 @@ will remain there till we press ctrl+c on the terminal.
 NOTE: To run oslash test run below test.
 
 ```shell script
- pytest tests/google_translate_test.py --browser chrome_with_ext --alluredir=reports -v -s
+ pytest --browser chrome_with_ext --alluredir=reports -v -s
 ```
   

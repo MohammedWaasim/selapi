@@ -1,0 +1,12 @@
+saka:
+  base_url: "chrome-extension://nbdfpcokndmapcollfpjdpjlabnibjdi"
+  saka_home: "/saka.html"
+  websites:
+    google: 'https://www.google.com/'
+    oslash: 'https://oslash.com/'
+    whatsapp: 'https://www.whatsapp.com/'
+    telegram_login: 'https://web.telegram.org/#/login'
+  switch_tab: oslash
+
+
+

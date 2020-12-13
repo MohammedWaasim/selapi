@@ -12,7 +12,7 @@ class WebDriverFactory():
     def __init__(self, browser):
         self.browser = browser
 
-    def getWebDriverInstance(self,crx_path=None):
+    def getWebDriverInstance(self,crx_path=None)-> webdriver:
         if self.browser=="iexplorer":
             driver=webdriver.Ie()
         elif self.browser=="firefox":
@@ -30,7 +30,7 @@ class WebDriverFactory():
         elif self.browser=="chrome_with_ext":
             chop = webdriver.ChromeOptions()
             chop.add_extension(crx_path)
-            chop.headless=True
+            #chop.headless=True
             driver = webdriver.Chrome(ChromeDriverManager().install(),options=chop)
         else:
             self.log.error("no such driver found driver not initiated")
