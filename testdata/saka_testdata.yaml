@@ -8,6 +8,9 @@ saka:
     telegram_login: 'https://web.telegram.org/#/login'
   test_tab: oslash
   bookmarks_site: 'chrome://bookmarks/'
+  options_page: '/options.html'
+  update_default_mode: 'Bookmarks'
+  default_mode: 'Tabs'
 
 
 

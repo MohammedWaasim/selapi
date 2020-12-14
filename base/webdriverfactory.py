@@ -30,11 +30,10 @@ class WebDriverFactory():
         elif self.browser=="chrome_with_ext":
             chop = webdriver.ChromeOptions()
             chop.add_extension(crx_path)
-            #chop.headless=True
             driver = webdriver.Chrome(ChromeDriverManager().install(),options=chop)
         else:
             self.log.error("no such driver found driver not initiated")
 
-        driver.implicitly_wait(5)
+        driver.implicitly_wait(10)
         driver.maximize_window()
         return driver

@@ -18,6 +18,8 @@ class SakaPageMap(BasePage):
         self.waitForElement("//div/i[text()='bookmark_border']","xpath")
         return self.getElement("//div/i[text()='bookmark_border']","xpath")
 
+    def mode_label(self):
+        return self.getElement("search-bar")
 
 class SakaPage(BasePage):
     def __init__(self,driver):
@@ -39,3 +41,7 @@ class SakaPage(BasePage):
 
     def get_bookmarked_site(self):
         return self.getElement("//ul/li/span[2]/span[2]","xpath").text
+
+    def get_mode_displayed(self):
+        return self.getElementAttributeValue("aria-label",element=self.map.mode_label())
+

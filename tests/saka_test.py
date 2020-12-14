@@ -8,8 +8,7 @@ import unittest
 import utils.custom_logger as cl
 from pages.saka_page import SakaPage
 from collections import Counter
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
+from pages.options_page import OptionsPage
 import pyautogui
 
 @pytest.mark.usefixtures("oneTimeEveryClassSetup")
@@ -20,6 +19,7 @@ class Google_Translate(unittest.TestCase):
         print("get object of page classes")
         self.test_data=getYamlData(self.test_data_path,'saka')
         self.saka=SakaPage(self.driver)
+        self.options=OptionsPage(self.driver)
 
 
 
@@ -46,8 +46,6 @@ class Google_Translate(unittest.TestCase):
         self.driver.get(self.test_data['websites'][self.test_data['test_tab']])
         test_window=self.driver.current_window_handle
         self.saka.wait_for_page_to_load()
-        #actions=ActionChains(self.driver)
-        #actions.key_down(Keys.COMMAND).send_keys('d').key_up(Keys.COMMAND).perform()
         pyautogui.keyDown('command')
         pyautogui.press('d')
         pyautogui.keyUp('command')
@@ -61,6 +59,18 @@ class Google_Translate(unittest.TestCase):
         self.saka.select_bookmark_tab()
         self.saka.wait_for_bookmarks_to_display()
         assert self.test_data['websites'][self.test_data['test_tab']]== self.saka.get_bookmarked_site()
+
+    @pytest.mark.order(3)
+    def test_update_default_mode(self):
+        self.driver.get(self.test_data['base_url'] + self.test_data['saka_home'])
+        self.saka.wait_for_page_to_load()
+        assert self.test_data['default_mode']==self.saka.get_mode_displayed()
+        self.driver.get(self.test_data['base_url'] + self.test_data['options_page'])
+        self.options.select_default_mode(self.test_data['update_default_mode'])
+        self.options.click_save_button()
+        self.driver.get(self.test_data['base_url'] + self.test_data['saka_home'])
+        assert self.test_data['update_default_mode'] == self.saka.get_mode_displayed()
+
 
 
 
