@@ -19,5 +19,5 @@ class BearingSelectionStart(BasePage):
 
     def click_on_rolling_bearing_img(self):
         self.elementClick(*self._rolling_bearing_img)
-        cl.allurelogs("clicked on accept and continue button")
+        cl.allurelogs("clicked on rolling bearing image")
 

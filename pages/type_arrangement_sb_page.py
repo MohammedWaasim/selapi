@@ -1,3 +1,5 @@
+import pdb
+
 from base.basepage import BasePage
 from selenium.webdriver.support.color import Color
 import utils.custom_logger as cl
@@ -13,7 +15,7 @@ class TypeArrangementSb(BasePage):
     _page_url="type-arrangement/single-bearing"
     _select_bearing_type=("//span[contains(text(),'Select bearing type')]","xpath")
     _bearing_types=("//span[@title]","xpath")
-    _bearing_icon=('bearing-icon',"class")
+    _screen=("//body","xpath")
     _search_designation_search_box=("//input[contains(@class,'search-input')]","xpath")
     _next_button=("//button[text()='next'][@class='button-default']","xpath")
 
@@ -23,6 +25,7 @@ class TypeArrangementSb(BasePage):
 
     def click_on_select_bering_type(self):
         self.elementClick(*self._select_bearing_type)
+        cl.allurelogs("clicked on Bearing Type drop-down")
 
     def get_baring_types(self):
         self.waitForElement(locator="//mat-select[@aria-expanded='true']",locatorType="xpath")
@@ -30,11 +33,12 @@ class TypeArrangementSb(BasePage):
         bearing_list=[]
         for ele in bearing_ele_list:
             bearing_list.append(ele.text)
-        cl.allurelogs(f"list of bearing displayed{bearing_list}")
+        cl.allurelogs(f"list of bearing displayed")
+        cl.allurelogs(str(bearing_list))
         return bearing_list
 
-    def click_on_bearing_icon(self):
-        self.elementClick(*self._bearing_icon)
+    def closing_dropdown(self):
+        self.elementClick(*self._screen)
 
     def select_given_bearing_type(self,bearing_type):
         ele=self.getElement(locator=f"//mat-option/span/span[text()='{bearing_type}']",locatorType="xpath")
@@ -61,7 +65,7 @@ class TypeArrangementSb(BasePage):
     def get_color_of_next_button(self):
         color_code= self.getElementColorCode(*self._next_button)
         color_code_hex=Color.from_string(color_code).hex
-        cl.allurelogs(f"the color code received is {color_code_hex}")
+        cl.allurelogs(f"the color code of next button changed to {color_code_hex}")
         return color_code_hex
 
 

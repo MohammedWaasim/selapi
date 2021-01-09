@@ -26,7 +26,7 @@ class WebDriverFactory():
             options = Options()
             options.headless=True
             options.add_argument("--disable-notifications")
-            driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+            driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         else:
             self.log.error("no such driver found driver not initiated")
 

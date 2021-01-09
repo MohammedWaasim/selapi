@@ -9,6 +9,4 @@ install:
   - pip3 install requests
   - pip3 install webdriver_manager
   - pip3 install pytest-ordering
-script:  pytest -m regression --browser=headless --verbose -s --alluredir=reports
-#pytest tests/test_suite_demo.py --browser chrome --alluredir=reports --env staging
-#pytest tests/test_suite_demo.py --browser headless --alluredir=reports --env staging
+script:  pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"

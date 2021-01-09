@@ -1,5 +1,5 @@
 from base.basepage import BasePage
-
+import utils.custom_logger as cl
 
 class OneOrTwo(BasePage):
     def __init__(self,driver):
@@ -19,3 +19,4 @@ class OneOrTwo(BasePage):
 
     def click_on_single_bearing_img(self):
         self.elementClick(*self._single_bearing)
+        cl.allurelogs("clicked on single bearing image")

@@ -23,16 +23,16 @@ export PYTHONPATH=$PYTHONPATH:.
 ```
 4. Run this line in the project folder 
 ```sh
-pytest tests/test_suite_demo.py --browser chrome --alluredir=reports --env staging
+pytest tests/test_suite_demo.py --browser chrome --alluredir=reports 
 ```
 5. To run api test alone exe this command 'pytest -k api --alluredir=reports'
 7. To run Web test alone exe 'pytest -k web --browser chrome --alluredir=reports'
 6. Finally to view the report run 'allure serve reports' <- this command will open the report in the dynamic page and
 will remain there till we press ctrl+c on the terminal.
 
-NOTE: To run ndtv test run below test.
+NOTE: To run skf test run below test.
 
 ```shell script
- pytest tests/test_suite_demo.py --browser headless --alluredir=reports -v -s
+ pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"
 ```
   
