@@ -35,4 +35,7 @@ NOTE: To run skf test run below test.
 ```shell script
  pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"
 ```
-  
+  To View test reports run below command
+```shell script
+allure serve reports
+```
