@@ -1,6 +1,7 @@
 import inspect
 import logging
 import pdb
+import allure
 
 def customLogger(logLevel=logging.DEBUG):
     #Get the name of the class/method from where this method is called
@@ -17,3 +18,7 @@ def customLogger(logLevel=logging.DEBUG):
     fileHandler.setFormatter(formatter)
     logger.addHandler(fileHandler)
     return logger
+
+def allurelogs(msg):
+    with allure.step(msg):
+        pass

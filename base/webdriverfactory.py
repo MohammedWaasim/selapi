@@ -12,7 +12,7 @@ class WebDriverFactory():
         self.browser = browser
 
     def getWebDriverInstance(self):
-        baseUrl="https://courses.letskodeit.com/"
+        baseUrl="https://www.skfbearingselect.com"
         if self.browser=="iexplorer":
             driver=webdriver.Ie()
         elif self.browser=="firefox":
@@ -32,5 +32,5 @@ class WebDriverFactory():
 
         driver.implicitly_wait(5)
         driver.maximize_window()
-        #driver.get(baseUrl), commented bcoz there is another testcase addded for different website
+        driver.get(baseUrl) #commented bcoz there is another testcase addded for different website
         return driver

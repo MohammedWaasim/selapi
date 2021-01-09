@@ -2,7 +2,6 @@ import pdb
 
 import allure
 from selenium.webdriver.common.by import By
-from traceback import print_stack
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
@@ -11,14 +10,12 @@ import time
 import utils.custom_logger as cl
 import logging
 
-from utils.utilfile import Util
-
 
 class BasePage():
     log = cl.customLogger(logging.INFO)
     def __init__(self, driver):
         self.driver = driver
-        self.util = Util()
+
 
     def screenShot(self,resultMessage):
         fileName=resultMessage+ "."+str(round(time.time()*1000))+".png"
@@ -50,7 +47,7 @@ class BasePage():
             return By.XPATH
         elif locatorType == "css":
             return By.CSS_SELECTOR
-        elif locatorType == "classname":
+        elif locatorType == "class":
             return By.CLASS_NAME
         elif locatorType == "linktext":
             return By.LINK_TEXT
@@ -92,6 +89,17 @@ class BasePage():
         except:
             self.log.info("Element list NOT found wiht locator" + locator + " and locator type " + locatorType)
         return elements
+    def getElementColorCode(self, locator, locatorType="id"):
+        element=None
+        try:
+            locatorType = locatorType.lower()
+            byType = self.getByType(locatorType)
+            element = self.driver.find_element(byType, locator)
+            color_code=element.value_of_css_property("background-color")
+            self.log.info("color code for the given locator " + locator +" is  "+ color_code)
+        except:
+            self.log.info("could not get color code of " + locator )
+        return color_code
 
     def elementClick(self, locator="", locatorType="id", element=None):
         """
@@ -239,7 +247,7 @@ class BasePage():
             self.log.error("Element :: '" + info + "' state could not be found")
         return enabled
 
-    def getElementAttributeValue(self, attribute, element=None, locator="", locatorType="id"):
+    def getElementAttributeValue(self, attribute,locator="", locatorType="id",element=None):
         """
         Get value of the attribute of element
 
@@ -251,7 +259,6 @@ class BasePage():
                 1. element   - Element whose attribute need to find
                 2. locator   - Locator of the element
                 3. locatorType - Locator Type to find the element
-
         Returns:
             Value of the attribute
         Exception:
@@ -304,14 +311,9 @@ class BasePage():
         """
         self.driver.switch_to.default_content()
 
-    def verifyPageTitle(self,titleToVerify):
-        try:
-            return self.util.verifyTextContains(self.getTitle(),titleToVerify)
-        except:
-            self.log.error("Failed to assert title")
-
-            return False
-
     def wait_for_page_to_load(self):
         WebDriverWait(self.driver, 120).until(
             lambda driver: driver.execute_script('return document.readyState') == 'complete')
+
+    def wait_for_given_url(self,url):
+        WebDriverWait(self.driver, 20).until(lambda driver:url in driver.current_url)
