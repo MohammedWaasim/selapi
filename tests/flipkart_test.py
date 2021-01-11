@@ -12,6 +12,7 @@ class FlipkartTest(unittest.TestCase):
     def classSetup(self,oneTimeDriverSetup):
         print("class setup")
         self.fk_home=FlipkartHomePage(self.driver)
+        self.test_data=getYamlData(self.flipkart_test_file)
     @pytest.mark.run(order=1)
     def test_powerbank_nav(self):
         self.fk_home.wait_for_page_to_load()
@@ -20,5 +21,11 @@ class FlipkartTest(unittest.TestCase):
         pass
 
     def test_get_prices_in_range(self):
-        pass
+        self.fk_home.wait_for_page_to_load()
+        self.fk_home.click_on_x_login_popup()
+        self.fk_home.enter_search_item("makbook air")
+        self.fk_home.click_submit()
+        self.fk_home.wait_for_title(self.test_data['search_title'])
+        self.fk_home.select_item_in_range(self.test_data['pricemin'],self.test_data['princemax'])
+
 

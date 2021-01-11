@@ -10,7 +10,7 @@ def oneTimeEveryClassSetup(request):
     config.read('properties.ini')
     if request.cls is not None:
         print("taking all the test data")
-        request.cls.skf_test_file= config['skf']['skftestdata']
+        request.cls.flipkart_test_file = config['flipkart']['flipkartdata']
     yield True
     print("Running one time tearDown for every Class")
 
