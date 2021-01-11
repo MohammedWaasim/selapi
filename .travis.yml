@@ -9,4 +9,4 @@ install:
   - pip3 install requests
   - pip3 install webdriver_manager
   - pip3 install pytest-ordering
-script:  pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"
+script:  pytest tests/flipkart_test.py -v -s --browser="headless" --alluredir="reports"
