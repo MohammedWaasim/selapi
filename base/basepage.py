@@ -2,6 +2,7 @@ import pdb
 
 import allure
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
@@ -55,7 +56,7 @@ class BasePage():
             self.log.info("Locator type " + locatorType + " not correct/supported")
         return False
 
-    def getElement(self, locator, locatorType="id"):
+    def getElement(self, locator, locatorType="id")-> WebElement:
         element = None
         try:
             locatorType = locatorType.lower()

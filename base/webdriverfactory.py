@@ -12,7 +12,7 @@ class WebDriverFactory():
         self.browser = browser
 
     def getWebDriverInstance(self):
-        baseUrl="https://www.skfbearingselect.com"
+        baseUrl="https://www.flipkart.com"
         if self.browser=="iexplorer":
             driver=webdriver.Ie()
         elif self.browser=="firefox":
