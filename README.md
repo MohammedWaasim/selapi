@@ -33,7 +33,7 @@ will remain there till we press ctrl+c on the terminal.
 NOTE: To run skf test run below test.
 
 ```shell script
- pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"
+ pytest tests/flipkart_test.py -v -s --browser="chrome" --alluredir="reports"
 ```
   To View test reports run below command
 ```shell script
