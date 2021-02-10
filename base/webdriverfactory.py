@@ -27,10 +27,13 @@ class WebDriverFactory():
             options.headless=True
             options.add_argument("--disable-notifications")
             driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        elif self.browser=="docker-chrome":
+            from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+            driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME)
         else:
             self.log.error("no such driver found driver not initiated")
 
         driver.implicitly_wait(5)
-        driver.maximize_window()
+        driver.fullscreen_window()
         driver.get(baseUrl) #commented bcoz there is another testcase addded for different website
         return driver
