@@ -20,8 +20,8 @@ class SkfTest(unittest.TestCase):
         self.ot=OneOrTwo(self.driver)
         self.bearing_data=getYamlData(self.skf_test_file)
 
-    @pytest.mark.run(order=1)
-    def test_multiselect_option(self):
+
+    def test_multiselect_option1(self):
         self.pn.wait_for_privacy_notification_page_to_load()
         self.pn.click_on_accept_continue()
         self.bs.wait_for_bearing_selection_start_page_to_load()
@@ -32,6 +32,85 @@ class SkfTest(unittest.TestCase):
         self.ta.click_on_select_bering_type()
         assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
         self.ta.closing_dropdown()
+
+
+    def test_multiselect_option2(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
+
+    def test_multiselect_option3(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
+
+    def test_multiselect_option4(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
+
+    def test_multiselect_option4(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
+
+    def test_multiselect_option5(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
+
+    def test_multiselect_option6(self):
+        self.pn.wait_for_privacy_notification_page_to_load()
+        self.pn.click_on_accept_continue()
+        self.bs.wait_for_bearing_selection_start_page_to_load()
+        self.bs.click_on_rolling_bearing_img()
+        self.ot.wait_for_one_or_two_page_to_load()
+        self.ot.click_on_single_bearing_img()
+        self.ta.wait_for_type_arrangement_sb_page_to_load()
+        self.ta.click_on_select_bering_type()
+        assert set(self.bearing_data['multi_select_options']) == set(self.ta.get_baring_types())
+        self.ta.closing_dropdown()
+
 
     @pytest.mark.run(order=2)
     def test_next_button_enabling(self):
