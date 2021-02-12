@@ -21,21 +21,20 @@ git clone https://github.com/MohammedWaasim/python_framework.git
 ```sh
 export PYTHONPATH=$PYTHONPATH:.
 ```
-4. Run this line in the project folder 
-```sh
-pytest tests/test_suite_demo.py --browser chrome --alluredir=reports 
+4. To Start Dockerized Selenium-grid run below command
+```commandline
+docker-compose -f docker-compose.yml up --scale chrome=2
+``` 
+5. Verify Selenium-Grid is up and running with 2 chrome containers and 1 firfox container in 
+```html
+http://localhost:4444/ui/index.html#/
 ```
-5. To run api test alone exe this command 'pytest -k api --alluredir=reports'
-7. To run Web test alone exe 'pytest -k web --browser chrome --alluredir=reports'
-6. Finally to view the report run 'allure serve reports' <- this command will open the report in the dynamic page and
-will remain there till we press ctrl+c on the terminal.
-
-NOTE: To run skf test run below test.
+6. Run below command which executes tests in parallel with 4 threads
 
 ```shell script
- pytest tests/skf_test.py -v -s --browser="headless" --alluredir="reports"
+ pytest tests/skf_test.py -v -s --browser="docker-chrome" --alluredir="reports" -n 4
 ```
-  To View test reports run below command
+7. To View test reports run below command
 ```shell script
 allure serve reports
 ```
